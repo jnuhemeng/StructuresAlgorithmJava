@@ -290,14 +290,13 @@ public class  DepthFirstSearch
 		Vertex v6 = new Vertex( "v6" );
 		Vertex v7 = new Vertex( "v7" );
 
-		mGraph.adjacencys.put( v1, new AdjVertex[]{ new AdjVertex(v2,false), new AdjVertex(v3,false), new AdjVertex(v4,false) } );
-		/*mGraph.adjacencys.put( v1, new Vertex[]{ v2, v3, v4 } );
+		mGraph.adjacencys.put( v1, new Vertex[]{ v2, v3, v4 } );
 		mGraph.adjacencys.put( v2, new Vertex[]{ v4, v5 } );
 		mGraph.adjacencys.put( v3, new Vertex[]{ v6 } );
 		mGraph.adjacencys.put( v4, new Vertex[]{ v3, v6, v7 } );
 		mGraph.adjacencys.put( v5, new Vertex[]{ v4, v7 } );
 		mGraph.adjacencys.put( v6, new Vertex[]{ } );
-		mGraph.adjacencys.put( v7, new Vertex[]{ v6 } );*/
+		mGraph.adjacencys.put( v7, new Vertex[]{ v6 } );
 
 
 		return mGraph;
