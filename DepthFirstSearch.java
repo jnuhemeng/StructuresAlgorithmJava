@@ -56,10 +56,12 @@ class AdjVertex
  */
 class Graph
 {
-	public HashMap< Vertex, AdjVertex[] > adjacencys; //邻接表
+	//public HashMap< Vertex, AdjVertex[] > adjacencys; //邻接表
+	public HashMap< Vertex, Vertex[] > adjacencys; //邻接表
 	
 	public Graph() {
-		adjacencys = new HashMap< Vertex, AdjVertex[] >();
+		//adjacencys = new HashMap< Vertex, AdjVertex[] >();
+		adjacencys = new HashMap< Vertex, Vertex[] >();
 	}
 
 	/**
@@ -258,7 +260,7 @@ public class  DepthFirstSearch
 		mGraph.adjacencys.put( I, new Vertex[]{ B, C, D } );
 		return mGraph;*/	
 
-		/*//图三(图中的两部分互不连通)
+		//图三(图中的两部分互不连通)
 		Graph mGraph = new Graph();
 		Vertex A = new Vertex( "A" );
 		Vertex B = new Vertex( "B" );
@@ -278,10 +280,10 @@ public class  DepthFirstSearch
 
 		mGraph.adjacencys.put( F, new Vertex[]{ G } );
 		mGraph.adjacencys.put( G, new Vertex[]{ G, H } );
-		mGraph.adjacencys.put( H, new Vertex[]{ G } );*/
+		mGraph.adjacencys.put( H, new Vertex[]{ G } );
 
 		//图四(有向图)
-		Graph mGraph = new Graph();
+		/*×Graph mGraph = new Graph();
 		Vertex v1 = new Vertex( "v1" );
 		Vertex v2 = new Vertex( "v2" );
 		Vertex v3 = new Vertex( "v3" );
@@ -296,7 +298,7 @@ public class  DepthFirstSearch
 		mGraph.adjacencys.put( v4, new Vertex[]{ v3, v6, v7 } );
 		mGraph.adjacencys.put( v5, new Vertex[]{ v4, v7 } );
 		mGraph.adjacencys.put( v6, new Vertex[]{ } );
-		mGraph.adjacencys.put( v7, new Vertex[]{ v6 } );
+		mGraph.adjacencys.put( v7, new Vertex[]{ v6 } );*/
 
 
 		return mGraph;
@@ -339,7 +341,9 @@ public class  DepthFirstSearch
 
 		System.out.print("\n深度优先发遍历结果\n");
 		mDepthFirstSearch.dfs( mGraph ); //从默认顶点开始遍历
-		System.out.print("\n");
-		mDepthFirstSearch.dfs( mGraph, "v1" ); //从指定顶点开始遍历
+		//System.out.print("\n");
+		//mDepthFirstSearch.dfs( mGraph, "v1" ); //从指定顶点开始遍历
+
+		System.out.println();
 	}
 }
