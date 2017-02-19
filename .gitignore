@@ -17,4 +17,7 @@ hs_err_pid*
 EulerCircuit.txt
 EulerCircuit2.txt
 
-
+/target/
+.classpath
+.project
+.settings/
