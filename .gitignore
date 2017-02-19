@@ -16,6 +16,7 @@ hs_err_pid*
 EulerCircuit.txt
 EulerCircuit2.txt
 
+# Maven
 /target/
 .classpath
 .project
