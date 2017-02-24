@@ -1,4 +1,4 @@
-package com.hemeng.study.dsa.demo;
+package com.hemeng.study.dsa.sort;
 
 import java.util.Random;
 import java.math.BigDecimal; 
@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  *	一些简单的排序算法：插入法、冒泡法、选择法
  *	改进的排序算法：希尔排序法
  */
-public class  SimpleSort
+public class  SimpleSorts
 {
 	/**
 	 *	用 “插入法” 对输入的数组进行升序排序
@@ -143,10 +143,10 @@ public class  SimpleSort
 	 *	@date 2016.03.16
 	 */
 	public static void functionDemo(int N) {
-		int[][] array = SimpleSort.generateIntArray(4,N);
+		int[][] array = SimpleSorts.generateIntArray(4,N);
 		
 		System.out.println("原始数组（包含" + array[0].length + "个元素)：");
-		SimpleSort.printArray(array[0]);
+		SimpleSorts.printArray(array[0]);
 
 		/*String sortName;
 		switch (funName)
@@ -175,20 +175,20 @@ public class  SimpleSort
 		SimpleSort.printArray(array[1]);*/
 
 		System.out.println("\n插入法：");
-		SimpleSort.insertionSort(array[0]); //“插入法”
-		SimpleSort.printArray(array[0]);
+		SimpleSorts.insertionSort(array[0]); //“插入法”
+		SimpleSorts.printArray(array[0]);
 
 		System.out.println("\n冒泡法：");
-		SimpleSort.bubbleSort(array[1]); //“冒泡法”
-		SimpleSort.printArray(array[1]);
+		SimpleSorts.bubbleSort(array[1]); //“冒泡法”
+		SimpleSorts.printArray(array[1]);
 
 		System.out.println("\n选择法：");
-		SimpleSort.selectSort(array[2]); //“选择法”
-		SimpleSort.printArray(array[2]);
+		SimpleSorts.selectSort(array[2]); //“选择法”
+		SimpleSorts.printArray(array[2]);
 
 		System.out.println("\n希尔排序法：");
-		SimpleSort.shellSort(array[3]); //“希尔排序法”
-		SimpleSort.printArray(array[3]);
+		SimpleSorts.shellSort(array[3]); //“希尔排序法”
+		SimpleSorts.printArray(array[3]);
 		
 		System.out.println("");
 	}
@@ -199,32 +199,32 @@ public class  SimpleSort
 	 *	@date 2016.03.16
 	 */
 	public static void propertyDemo(int N) {
-		int[][] array = SimpleSort.generateIntArray(4,N);
+		int[][] array = SimpleSorts.generateIntArray(4,N);
 
 		System.out.println("测试数组所含元素的个数：" + N);	
 		double startTimeUs = ((double)System.nanoTime())/1000;   //获取开始时间  
-		SimpleSort.shellSort(array[0]); //“希尔排序法”
+		SimpleSorts.shellSort(array[0]); //“希尔排序法”
 		double endTimeUs = ((double)System.nanoTime())/1000; //获取结束时间 
 		BigDecimal bgUs = new BigDecimal(endTimeUs-startTimeUs);  //结果保留3位小数
         double timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue(); 
 		System.out.println("希尔排序法排序用时： "+timeCostUs+"μs");
 
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		SimpleSort.insertionSort(array[1]); //“插入法”
+		SimpleSorts.insertionSort(array[1]); //“插入法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
 		System.out.println("插入法排序用时： "+timeCostUs+"μs"); 
 
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		SimpleSort.bubbleSort(array[2]); //“冒泡法”
+		SimpleSorts.bubbleSort(array[2]); //“冒泡法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue(); 
 		System.out.println("冒泡法排序用时： "+timeCostUs+"μs"); 
 
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		SimpleSort.selectSort(array[3]); //“选择法”
+		SimpleSorts.selectSort(array[3]); //“选择法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue(); 
@@ -235,12 +235,12 @@ public class  SimpleSort
 	{
 		int N = 20;
 		//insertionSort, bubbleSort, selectSort, shellSort
-		SimpleSort.functionDemo(N); 
+		SimpleSorts.functionDemo(N); 
 
 		System.out.println();
 
 		N = 2000;
-		SimpleSort.propertyDemo(N);
+		SimpleSorts.propertyDemo(N);
 
 	}
 }

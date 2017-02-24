@@ -1,4 +1,4 @@
-package com.hemeng.study.dsa.demo;
+package com.hemeng.study.dsa.sort;
 
 import java.math.BigDecimal; 
 
@@ -8,7 +8,7 @@ import java.util.Arrays;
  *	一些稍复杂的排序算法：堆排序（Nlog(N）复杂度）、归并排序、快速排序
  *
  */
-public class  ComplexSort
+public class  ComplexSorts
 {
 	/**
 	 *	用 “堆排序法” 对输入的数组进行升序排序
@@ -281,18 +281,18 @@ public class  ComplexSort
 
 		//SimpleSort.propertyDemo(N);
 
-		int[][] array = SimpleSort.generateIntArray(6,N);
+		int[][] array = SimpleSorts.generateIntArray(6,N);
 		System.out.println("测试数组所含元素的个数：" + N);	
 
 		double startTimeUs = ((double)System.nanoTime())/1000;   //获取开始时间  
-		ComplexSort.heapSort(array[0]); //“堆排序法”
+		ComplexSorts.heapSort(array[0]); //“堆排序法”
 		double endTimeUs = ((double)System.nanoTime())/1000; //获取结束时间 
 		BigDecimal bgUs = new BigDecimal(endTimeUs-startTimeUs);  //结果保留3位小数
         double timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue(); 
 		System.out.println("堆排序用时： "+timeCostUs+"μs");	
 		
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		SimpleSort.shellSort(array[1]); //“希尔排序法”
+		SimpleSorts.shellSort(array[1]); //“希尔排序法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -306,7 +306,7 @@ public class  ComplexSort
 		System.out.println("插入法排序用时： "+timeCostUs+"μs"); */
 
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		ComplexSort.mergeSort(array[3]); //“归并排序法”
+		ComplexSorts.mergeSort(array[3]); //“归并排序法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -320,7 +320,7 @@ public class  ComplexSort
 		System.out.println("Java类库中的Arrays排序算法用时： "+timeCostUs+"μs");
 	
 		startTimeUs = ((double)System.nanoTime())/1000;    
-		ComplexSort.quickSort(array[5]); //“快速排序法”
+		ComplexSorts.quickSort(array[5]); //“快速排序法”
 		endTimeUs = ((double)System.nanoTime())/1000; 
 		bgUs = new BigDecimal(endTimeUs-startTimeUs);  
         timeCostUs = bgUs.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
@@ -339,23 +339,23 @@ public class  ComplexSort
 	public static void functionDemo(int N) {
 
 		//SimpleSort.functionDemo(N); 
-		int[][] array = SimpleSort.generateIntArray(4,N);
+		int[][] array = SimpleSorts.generateIntArray(4,N);
 		
 		System.out.println("\n堆排序法：");
-		ComplexSort.heapSort(array[0]); //“堆排序法”
-		SimpleSort.printArray(array[0]);
+		ComplexSorts.heapSort(array[0]); //“堆排序法”
+		SimpleSorts.printArray(array[0]);
 		
 		System.out.println("\n归并排序法："); 
-		ComplexSort.mergeSort(array[1]); //“归并排序法”
-		SimpleSort.printArray(array[1]);
+		ComplexSorts.mergeSort(array[1]); //“归并排序法”
+		SimpleSorts.printArray(array[1]);
 
 		System.out.println("\nJava类库中的Arrays排序算法："); 
 		Arrays.sort(array[2]); //“Java类库中的Arrays排序算法”
-		SimpleSort.printArray(array[2]);
+		SimpleSorts.printArray(array[2]);
 
 		System.out.println("\n快速排序法：");
-		ComplexSort.quickSort(array[3]); //“快速排序法”
-		SimpleSort.printArray(array[3]);
+		ComplexSorts.quickSort(array[3]); //“快速排序法”
+		SimpleSorts.printArray(array[3]);
 		
 		System.out.println("");
 	}
@@ -367,13 +367,13 @@ public class  ComplexSort
 	 */
 	public static void divideToTwoSetsDemo(int N) {
 
-		int[][] array = SimpleSort.generateIntArray(1,N);
+		int[][] array = SimpleSorts.generateIntArray(1,N);
 		System.out.println("原始数组（包含" + array[0].length + "个元素)：");
-		SimpleSort.printArray(array[0]);
+		SimpleSorts.printArray(array[0]);
 
 		System.out.println("\n中枢元素分段：cutOffPos = " + 
-			ComplexSort.divideToTwoSets( array[0], 0, array[0].length -1 ));
-		SimpleSort.printArray(array[0]);
+			ComplexSorts.divideToTwoSets( array[0], 0, array[0].length -1 ));
+		SimpleSorts.printArray(array[0]);
 	}
 
 
@@ -388,6 +388,6 @@ public class  ComplexSort
 		//性能性分析
 		N=8000000;
 		System.out.println("");
-		ComplexSort.propertyDemo(N);
+		ComplexSorts.propertyDemo(N);
 	}
 }

@@ -2,7 +2,7 @@
  * 练习基于Dijkstra算法的赋权图单源最短路径计算
  *
  */
-package com.hemeng.study.dsa.eulercircuit.shortestpathdijkstra;
+package com.hemeng.study.dsa.shortestpathdijkstra;
 
 import java.util.*;
 
