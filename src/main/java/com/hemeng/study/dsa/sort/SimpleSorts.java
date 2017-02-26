@@ -81,8 +81,10 @@ public class  SimpleSorts
 	 *	@date 2016.03.16
 	 */
 	public static void shellSort(int[] array) {
+		//迭代直到增量变为1
 		for (int gap=array.length/2; gap>0; gap/=2)
 		{
+			//进行插入排序（多个序列的插入排序并行进行）
 			for (int j=gap; j<array.length; j++)
 			{
 				int temp = array[j];
