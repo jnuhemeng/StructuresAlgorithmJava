@@ -1,7 +1,5 @@
 package com.hemeng.study.dsa.sort;
 
-import java.util.Arrays;
-
 /**
  * 复习各种复杂的排序算法
  * @author Administrator
@@ -10,6 +8,7 @@ import java.util.Arrays;
 public class ComplexSortsRevise {
 	/**
 	 * 堆排序
+	 * 	这里比标准的实现代码复杂了很多，需要进一步学习标准的实现方式。
 	 * @param array
 	 */
 	public static void heapSort(int[] array) {
@@ -20,14 +19,16 @@ public class ComplexSortsRevise {
 		for(int item : array) {
 			tempArray[i++] = item;
 		}
+		//printArray("\n拷贝数组", tempArray);
 		for(i = currentSize / 2; i >= 1; i--) {
+			//下滤操作
 			///percolateDown(i);
 			percolateDown(tempArray, currentSize, i);
+			//printArray("构建二叉堆", tempArray);
 		}
-		SimpleSorts.printArray(tempArray);
-		System.out.println("\n");
 		
 		//2、反复取出当前堆中的最大值，并保证二叉堆的堆序性和结构性
+			//为了避免使用两个数组，将从二叉堆头部取出的元素放置到当前二叉堆的最末尾
 		for(i = 1; i <= array.length; i++) {
 			int tempItem = tempArray[currentSize];
 			tempArray[currentSize] = tempArray[1];
@@ -35,11 +36,18 @@ public class ComplexSortsRevise {
 			currentSize--;
 			percolateDown(tempArray, currentSize, 1);
 		}
+		//printArray("排序后的数组", tempArray);
 		
-		SimpleSorts.printArray(tempArray);
+		for(i = 0; i <= array.length - 1; i++) {
+			array[i] = tempArray[i + 1];
+		}
+	}
+	
+	/** 用于辅助调试的方法，打印一个数组并添加标题 */
+	private static void printArray(String title, int[] array) {
+		System.out.println(title);
+		SimpleSorts.printArray(array);
 		System.out.println("\n");
-		
-		array = tempArray;
 	}
 	
 	/***
@@ -52,7 +60,7 @@ public class ComplexSortsRevise {
 	private static void percolateDown(int[] tempArray, int currentSize, int pos) {
 		// TODO Auto-generated method stub
 		int child;
-		while((child = pos / 2) <= currentSize) {
+		while((child = pos * 2) <= currentSize) {
 			if(child + 1 <= currentSize && tempArray[child] < tempArray[child + 1]) {
 				child += 1;
 			}
@@ -101,6 +109,7 @@ public class ComplexSortsRevise {
 	public static void main(String[] args) 
 	{
 		int N = 20;
+		//int N = 10;
 		
 		//功能性分析
 		ComplexSortsRevise.functionDemo(N);
