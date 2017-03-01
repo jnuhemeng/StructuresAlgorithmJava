@@ -43,6 +43,61 @@ public class ComplexSortsRevise {
 		}
 	}
 	
+	/**
+	 * 归并排序(驱动程序)
+	 * @param array
+	 */
+	public static void mergeSort(int[] array) {
+		int[] tempArray = new int[array.length];
+		mergeSort(array, tempArray, 0, array.length - 1);
+		/*int i = 0;
+		for(int item : tempArray) {
+			array[i++] = item;
+		}*/
+	}
+	
+	/**
+	 * 归并排序核心算法
+	 * @param array
+	 * @param tempArry
+	 * @param left
+	 * @param right
+	 */
+	private static void mergeSort(int[] array, int[] tempArray, int left, int right) {
+		// TODO Auto-generated method stub
+		//分阶段
+		if(left >= right) {
+			return;
+		}
+		int center = (left + right) / 2;
+		mergeSort(array, tempArray, left, center);
+		mergeSort(array, tempArray, center + 1, right);
+		
+		//治阶段
+		int i = left, j = center + 1, k = left;
+		while(i <= center && j <= right) {
+			if(array[i] < array[j]) {
+				tempArray[k++] = array[i++];
+			} else {
+				tempArray[k++] = array[j++];
+			}
+		}
+		while(i <= center) {
+			tempArray[k++] = array[i++];
+		}
+		while(j <= right) {
+			tempArray[k++] = array[j++];
+		}
+			//将排好序的元素按顺序拷贝回原数组
+		i = left; 
+		while(i <= right) {
+			array[i] = tempArray[i];
+			i++;
+		}
+		
+		//printArray("归并排序中间过程：", tempArray);
+	}
+
 	/** 用于辅助调试的方法，打印一个数组并添加标题 */
 	private static void printArray(String title, int[] array) {
 		System.out.println(title);
@@ -91,11 +146,11 @@ public class ComplexSortsRevise {
 		ComplexSortsRevise.heapSort(array[0]); //“堆排序法”
 		SimpleSorts.printArray(array[0]);
 		
-		/*System.out.println("\n归并排序法："); 
+		System.out.println("\n归并排序法："); 
 		ComplexSortsRevise.mergeSort(array[1]); //“归并排序法”
 		SimpleSorts.printArray(array[1]);
 
-		System.out.println("\nJava类库中的Arrays排序算法："); 
+		/*System.out.println("\nJava类库中的Arrays排序算法："); 
 		Arrays.sort(array[2]); //“Java类库中的Arrays排序算法”
 		SimpleSorts.printArray(array[2]);
 
