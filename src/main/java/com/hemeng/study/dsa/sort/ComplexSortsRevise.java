@@ -57,6 +57,108 @@ public class ComplexSortsRevise {
 	}
 	
 	/**
+	 * 快速排序（驱动程序）
+	 * @param array
+	 */
+	public static void quickSort(int[] array) {
+		quickSort(array, 0, array.length - 1);
+	}
+
+	/**
+	 * 快速排序中间方法
+	 * 	书本上的算法实现考虑更加全面并且设计也更加精致：
+	 * 	（1）分为驱动程序、中间实现程序、交换函数、三数中值分割法函数（包含更多的含义）；
+	 * 	（2）中间实现程序的代码依赖于三数中值分割法函数，主要体现在以下两个方面：
+	 * 		中值选为pivot，保证了不至于下标越界；
+	 * 		++i和++j置于判断语句中保证不会出现死循环。
+	 * @param array
+	 * @param left
+	 * @param right
+	 */
+	private static void quickSort(int[] array, int left, int right) {
+		// TODO Auto-generated method stub
+		if(left < right) {
+			int pivot = medianOfThree(array, left, right);
+			int temp = array[pivot];
+			array[pivot] = array[right];
+			array[right] = temp;
+			pivot = right;
+			
+			//System.out.println("array[pivot]: " + array[pivot]);
+			
+			int i = left, j = right - 1;
+			//治阶段的过程
+			while(true) {
+				//交换直到i和j交叉的过程
+				while(i < pivot && array[i] <= array[pivot]) {
+					i++;
+				}
+				while(j >= left && array[j] >= array[pivot]) {
+					j--;
+				}
+				//System.out.println("i=" + i + ", j=" + j);
+				if(i < j) {
+					temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				} else if(i >= j) {
+					//处理特殊情况：所选的中枢元为序列的最大值
+					if(i == j && i == pivot - 1) {
+						temp = array[pivot];
+						array[pivot] = array[i];
+						array[i] = temp;
+					}
+					break;
+				}
+				//printArray("", array);
+			}
+			temp = array[pivot];
+			array[pivot] = array[i];
+			array[i] = temp;
+			
+			//*调试
+			//printArray("快速排序中间过程：", array);
+			
+			
+			//分阶段的过程
+			quickSort(array, left, i - 1);
+			quickSort(array, i + 1, right);
+		}
+	}
+
+	/**
+	 * 快速排序中间方法：三数中值分割法选取枢纽元
+	 * @param array
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	private static int medianOfThree(int[] array, int left, int right) {
+		// TODO Auto-generated method stub
+		int median = (left + right) / 2;
+		int pivot;
+		if(array[left] <= array[median]) {
+			if(array[median] <= array[right]) {
+				pivot = median;
+			} else if(array[left] <= array[right]) {
+				pivot = left;
+			} else {
+				pivot = right;
+			}
+		} else {
+			if(array[left] <= array[right]) {
+				pivot = left;
+			} else if(array[median] <= array[right]) {
+				pivot = median;
+			} {
+				pivot = right;
+			}
+		}
+		
+		return pivot;
+	}
+
+	/**
 	 * 归并排序核心算法
 	 * @param array
 	 * @param tempArry
@@ -152,11 +254,11 @@ public class ComplexSortsRevise {
 
 		/*System.out.println("\nJava类库中的Arrays排序算法："); 
 		Arrays.sort(array[2]); //“Java类库中的Arrays排序算法”
-		SimpleSorts.printArray(array[2]);
+		SimpleSorts.printArray(array[2]);*/
 
 		System.out.println("\n快速排序法：");
 		ComplexSortsRevise.quickSort(array[3]); //“快速排序法”
-		SimpleSorts.printArray(array[3]);*/
+		SimpleSorts.printArray(array[3]);
 		
 		System.out.println("");
 	}

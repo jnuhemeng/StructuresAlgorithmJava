@@ -220,7 +220,7 @@ public class  ComplexSorts
 			array[ right ] = temp;
 		}
 		
-		//一种中枢元素为界，将该子序列划分为两个更小的子序列
+		//以中枢元素为界，将该子序列划分为两个更小的子序列
 		cutOffPos = right;
 		cutOff = array[ right-- ];
 
@@ -381,13 +381,13 @@ public class  ComplexSorts
 	{
 		int N = 20;
 		
-		/*//功能性分析
-		ComplexSort.functionDemo(N);
-		//ComplexSort.divideToTwoSetsDemo(N);*/
+		//功能性分析
+		ComplexSorts.functionDemo(N);
+		//ComplexSorts.divideToTwoSetsDemo(N);
 		
-		//性能性分析
+		/*//性能性分析
 		N=8000000;
 		System.out.println("");
-		ComplexSorts.propertyDemo(N);
+		ComplexSorts.propertyDemo(N);*/
 	}
 }
