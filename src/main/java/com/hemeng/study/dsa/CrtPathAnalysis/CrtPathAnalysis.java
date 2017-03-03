@@ -4,7 +4,7 @@
  *		（与顶点邻接且在前和在后的邻接表） 
  *	@date 2016/3/25
  */
-package com.hemeng.study.dsa.CrtPathAnalysis;
+package com.hemeng.study.dsa.crtpathanalysis;
 import java.util.*;
 
 /**
