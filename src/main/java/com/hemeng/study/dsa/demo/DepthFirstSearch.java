@@ -339,7 +339,7 @@ public class  DepthFirstSearch
 		Graph mGraph = mDepthFirstSearch.generateGraph();
 		mDepthFirstSearch.printGraph( mGraph );
 
-		System.out.print("\n深度优先发遍历结果\n");
+		System.out.print("\n深度优先遍历结果\n");
 		mDepthFirstSearch.dfs( mGraph ); //从默认顶点开始遍历
 		//System.out.print("\n");
 		//mDepthFirstSearch.dfs( mGraph, "v1" ); //从指定顶点开始遍历

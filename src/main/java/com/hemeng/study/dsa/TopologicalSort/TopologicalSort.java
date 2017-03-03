@@ -3,7 +3,7 @@
  *		在这里，图用HashMap来表示 
  *	@date 2016/3/21
  */
-package com.hemeng.study.dsa.TopologicalSort;
+package com.hemeng.study.dsa.topologicalsort;
 import java.util.*;
 
 /**

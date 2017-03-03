@@ -3,7 +3,7 @@
  *		在这里，图用HashMap来表示 
  *	@date 2016/3/22
  */
-package com.hemeng.study.dsa.ShortestPathUnweighted;
+package com.hemeng.study.dsa.shortestpathunweighted;
 
 import java.util.*;
 
